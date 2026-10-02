@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 7-Day Overthinking Reset — SheRebuilt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF4EA; --ink:#3A2E2A; --muted:#7A6A63; --rose:#C9847A; --drose:#A4665D;
+  --lrose:#F1DED8; --sage:#8FA08A; --lsage:#E1E8DB; --field:#FFFDF9; --fborder:#D2A49B;
+  --radius:10px;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);
+  -webkit-text-size-adjust:100%;}
+body{padding-bottom:70px;}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500;margin:0 0 10px}
+p{line-height:1.6;margin:0 0 14px;font-size:15px}
+.wrap{max-width:640px;margin:0 auto;padding:18px 20px 30px}
+.cover{text-align:center;padding:56px 24px 40px;position:relative}
+.cover .eyebrow{letter-spacing:4px;font-size:11px;color:var(--drose);font-weight:600}
+.cover h1{font-size:38px;line-height:1.15;margin:10px 0}
+.cover .sub{font-family:'Lora',serif;font-style:italic;color:var(--ink);font-size:15px;line-height:1.8;margin-top:14px}
+.cover .brand{margin-top:34px;font-size:12px;letter-spacing:2px;color:var(--drose);font-weight:600}
+.divider{width:38px;height:2px;background:var(--rose);margin:14px auto;border:none}
+.chip{display:inline-block;background:var(--lrose);color:var(--drose);font-weight:600;
+  font-size:11px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.day-title{font-size:24px;margin-bottom:4px}
+.title-rule{width:34px;height:2px;background:var(--rose);border:none;margin:0 0 16px}
+.callout{background:var(--lrose);border-radius:8px;padding:16px 18px;margin:0 0 16px;
+  font-family:'Lora',serif;font-style:italic;color:var(--drose);font-size:15px;line-height:1.6}
+label.flabel{display:block;font-weight:500;font-size:13.5px;margin:0 0 6px}
+textarea,input[type=text]{width:100%;background:var(--field);border:1px solid var(--fborder);
+  border-radius:8px;padding:11px 12px;font-family:'Poppins',sans-serif;font-size:15px;color:var(--ink);
+  resize:vertical}
+textarea{min-height:64px}
+textarea.big{min-height:100px}
+.field-wrap{margin-bottom:16px}
+.saved-tag{font-size:10.5px;color:var(--sage);opacity:0;transition:opacity .4s;float:right;font-weight:600}
+.saved-tag.show{opacity:1}
+.check-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer}
+.check-row input{width:18px;height:18px;margin-top:1px;accent-color:var(--rose);flex-shrink:0}
+.check-row span{font-size:14.5px;line-height:1.4}
+.rating-wrap{margin-bottom:18px}
+.rating-row{display:flex;justify-content:space-between;gap:4px;margin-top:8px}
+.rating-opt{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+.rating-opt input{width:20px;height:20px;accent-color:var(--rose)}
+.rating-opt span{font-size:10.5px;color:var(--muted)}
+.rating-caps{display:flex;justify-content:space-between;font-size:10.5px;font-style:italic;
+  color:var(--muted);margin-top:4px}
+.choice-row{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 4px}
+.choice-opt{display:flex;align-items:center;gap:7px}
+.choice-opt input{width:18px;height:18px;accent-color:var(--rose)}
+.tick-one{font-size:11.5px;color:var(--muted);font-style:italic;font-weight:400}
+table.grid{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:12.5px}
+table.grid th{background:var(--lrose);color:var(--drose);font-weight:600;font-size:10.5px;
+  letter-spacing:.5px;padding:8px 6px;text-align:left}
+table.grid td{border:1px solid var(--lrose);padding:5px;vertical-align:top}
+table.grid td textarea{min-height:44px;font-size:12.5px;padding:6px}
+table.grid td input[type=text]{padding:6px;font-size:12.5px}
+.day-nav{background:var(--field);border:1px solid var(--fborder);border-radius:8px;
+  padding:10px 12px;font-size:14px;width:100%;margin-bottom:8px;color:var(--ink);
+  font-family:'Poppins',sans-serif}
+.topbar{position:sticky;top:0;background:var(--cream);z-index:5;padding:10px 20px;
+  border-bottom:1px solid var(--lrose);display:flex;gap:10px;align-items:center}
+.topbar select{flex:1}
+hr.sep{border:none;border-top:1px solid var(--lrose);margin:34px 0}
+.section{scroll-margin-top:64px}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:var(--cream);
+  border-top:1px solid var(--lrose);padding:10px 16px;display:flex;gap:10px;
+  justify-content:center;z-index:5}
+.btn{border:none;border-radius:20px;padding:10px 18px;font-size:13px;font-weight:600;
+  cursor:pointer;font-family:'Poppins',sans-serif}
+.btn-primary{background:var(--rose);color:#fff}
+.btn-secondary{background:transparent;color:var(--drose);border:1px solid var(--rose)}
+.closing{text-align:center;padding:40px 20px}
+.closing h2{font-size:21px;line-height:1.4}
+.closing .italic{font-family:'Lora',serif;font-style:italic;color:var(--drose);font-size:15px;
+  line-height:1.7;margin:14px 0 22px}
+.closing .box{background:var(--lrose);border-radius:8px;padding:18px;font-size:13px;
+  font-weight:600;line-height:1.9}
+.closing .box .b{color:var(--ink)}
+.closing .box .r{color:var(--drose)}
+.footnote{font-size:12px;color:var(--muted);margin-top:-6px;margin-bottom:16px}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --cream:#1E1815; --ink:#EFE6DF; --muted:#B7A89F; --field:#2A221D; --fborder:#5C4B43;
+    --lrose:#3A2724; --lsage:#26332A;
+  }
+}
+:root[data-theme="dark"]{
+  --cream:#1E1815; --ink:#EFE6DF; --muted:#B7A89F; --field:#2A221D; --fborder:#5C4B43;
+  --lrose:#3A2724; --lsage:#26332A;
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <select id="daynav" class="day-nav"><option value="">Jump to…</option><option value="sec0">WELCOME — You don&#x27;t need to figure everything out right now.</option><option value="sec1">HOW IT WORKS — How this reset works</option><option value="sec2">YOUR PATTERN — Before we change the pattern, let&#x27;s see it.</option><option value="sec3">YOUR TRIGGERS — Your overthinking triggers</option><option value="sec4">DAY 1 — Catch the Pattern</option><option value="sec5">DAY 1  ·  REFLECTION — What today showed you</option><option value="sec6">DAY 2 — Separate Facts From Fear</option><option value="sec7">DAY 2  ·  THE FACT CHECK — The Fact Check</option><option value="sec8">DAY 2  ·  REFLECTION — Where your brain filled in the blanks</option><option value="sec9">DAY 3 — Stop Reassurance Hunting</option><option value="sec10">DAY 3  ·  THE REASSURANCE DELAY — The Reassurance Delay</option><option value="sec11">DAY 3  ·  REFLECTION — What happened when you didn&#x27;t grab for it</option><option value="sec12">DAY 4 — Don&#x27;t Obey the First Urge</option><option value="sec13">DAY 4  ·  REFLECTION — What ten minutes showed you</option><option value="sec14">DAY 5 — What If That Actually Happens?</option><option value="sec15">DAY 5  ·  REFLECTION — What you&#x27;d actually do</option><option value="sec16">DAY 6 — You Don&#x27;t Need an Answer for Everything</option><option value="sec17">DAY 6  ·  CHECK-IN — Uncertainty check-in</option><option value="sec18">DAY 6  ·  REFLECTION — What you found out about not knowing</option><option value="sec19">DAY 7 — Build Your Anti-Spiral Plan</option><option value="sec20">EMERGENCY RESET — My 5-Minute Emergency Reset</option><option value="sec21">BEFORE  &amp;  NOW — My pattern: before vs. now</option><option value="sec22">PROGRESS — My 7-day progress tracker</option><option value="sec23">WHAT I’M TAKING WITH ME — What I’m taking with me</option><option value="sec24">MY REMINDER — My personal reminder</option><option value="sec25">REUSABLE PAGE — Spiral Reset</option></select>
+</div>
+
+<div class="cover">
+  <div class="eyebrow">THE</div>
+  <h1>7-Day<br>Overthinking<br>Reset</h1>
+  <hr class="divider">
+  <div class="sub">Stop the mental replay.<br>Break the &ldquo;what if?&rdquo; cycle.<br>Start trusting yourself again.</div>
+  <div class="brand">A SHEREBUILT&trade; DIGITAL WORKBOOK</div>
+</div>
+<div class="wrap footnote" style="text-align:center">Tap the menu below to jump to any day. Everything you type is saved automatically on this device as you go.</div>
+
+<section class="section wrap" id="sec0"><div class="chip">WELCOME</div><h2 class="day-title">You don&#x27;t need to figure everything out right now.</h2><hr class="title-rule"><p>Overthinking rarely feels like a problem while you&#x27;re doing it. It feels like protection. If you just think it through one more time — every way the conversation could have gone, every way this could go wrong — maybe you&#x27;ll be ready. Maybe nothing will catch you off guard.</p><p>But the loop doesn&#x27;t actually keep you safe. It keeps you tired, second-guessing, and stuck inside a conversation that&#x27;s already over, or one that hasn&#x27;t happened yet.</p><p>You are not going to spend the next 7 days trying to control every thought. That isn&#x27;t the goal — and honestly, it doesn&#x27;t work.</p><p>You&#x27;re going to learn how to notice the spiral, understand what&#x27;s underneath it, and choose what to do next.</p><div class="field-wrap">
+  <label class="flabel" for="p02_overthink_most">Right now, the thing I overthink most is…<span class="saved-tag" id="tag_p02_overthink_most">saved</span></label>
+  <textarea class="big" id="p02_overthink_most" name="p02_overthink_most" data-field="1"></textarea>
+</div><p>There are no wrong answers. Type it exactly the way your brain says it.</p></section><hr class="sep"><section class="section wrap" id="sec1"><div class="chip">HOW IT WORKS</div><h2 class="day-title">How this reset works</h2><hr class="title-rule"><p>Seven days. One small idea per day. Each day has an exercise page and a short reflection, so you&#x27;re never doing more than you can hold.</p><div class="callout">“This is not about becoming a person who never overthinks.” It is about becoming someone who knows what to do when the spiral starts.</div><div ><label class="check-row"><input type="checkbox" id="p03_willing" data-field="1"><span>I am willing to notice my patterns without judging myself.</span></label></div><p>Using this workbook. Tap any box to type. Everything you write saves automatically on this device as you go — there&#x27;s no file to save and no app to download. Just keep this page bookmarked and come back to it each day.</p><p>This workbook is a self-reflection tool. It isn&#x27;t therapy or medical advice, and it can&#x27;t replace support from a professional if you need one.</p></section><hr class="sep"><section class="section wrap" id="sec2"><div class="chip">YOUR PATTERN</div><h2 class="day-title">Before we change the pattern, let&#x27;s see it.</h2><hr class="title-rule"><p>Tick everything that&#x27;s true. Nobody is grading this — you&#x27;re just collecting information.</p><p>When I overthink, I usually…</p><div ><label class="check-row"><input type="checkbox" id="p04_replay" data-field="1"><span>Replay conversations</span></label><label class="check-row"><input type="checkbox" id="p04_social" data-field="1"><span>Check someone&#x27;s social media</span></label><label class="check-row"><input type="checkbox" id="p04_ask" data-field="1"><span>Ask other people what they think</span></label><label class="check-row"><input type="checkbox" id="p04_worst" data-field="1"><span>Imagine worst-case scenarios</span></label><label class="check-row"><input type="checkbox" id="p04_rewrite" data-field="1"><span>Rewrite messages before sending them</span></label><label class="check-row"><input type="checkbox" id="p04_upset" data-field="1"><span>Worry that someone is upset with me</span></label><label class="check-row"><input type="checkbox" id="p04_second" data-field="1"><span>Second-guess decisions</span></label><label class="check-row"><input type="checkbox" id="p04_should" data-field="1"><span>Think about what I “should have” said</span></label><label class="check-row"><input type="checkbox" id="p04_signs" data-field="1"><span>Look for signs or reassurance</span></label><label class="check-row"><input type="checkbox" id="p04_scenarios" data-field="1"><span>Create scenarios that haven&#x27;t happened</span></label></div><div class="field-wrap">
+  <label class="flabel" for="p04_something_else">Something else I do:<span class="saved-tag" id="tag_p04_something_else">saved</span></label>
+  <textarea class="big" id="p04_something_else" name="p04_something_else" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec3"><div class="chip">YOUR TRIGGERS</div><h2 class="day-title">Your overthinking triggers</h2><hr class="title-rule"><p>A trigger is whatever sets the loop off — a message left on read, a silence, a look, a decision you can&#x27;t undo. Add them here as you notice them this week. You don&#x27;t have to fill every row today.</p><div style="overflow-x:auto"><table class="grid"><tr><th>TRIGGER</th><th>WHAT HAPPENED?</th><th>WHAT DID I START THINKING?</th><th>INTENSITY 1–10</th></tr><tr><td><textarea id="p05_r1_trigger" data-field="1"></textarea></td><td><textarea id="p05_r1_happened" data-field="1"></textarea></td><td><textarea id="p05_r1_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r1_intensity" data-field="1"></td></tr><tr><td><textarea id="p05_r2_trigger" data-field="1"></textarea></td><td><textarea id="p05_r2_happened" data-field="1"></textarea></td><td><textarea id="p05_r2_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r2_intensity" data-field="1"></td></tr><tr><td><textarea id="p05_r3_trigger" data-field="1"></textarea></td><td><textarea id="p05_r3_happened" data-field="1"></textarea></td><td><textarea id="p05_r3_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r3_intensity" data-field="1"></td></tr><tr><td><textarea id="p05_r4_trigger" data-field="1"></textarea></td><td><textarea id="p05_r4_happened" data-field="1"></textarea></td><td><textarea id="p05_r4_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r4_intensity" data-field="1"></td></tr><tr><td><textarea id="p05_r5_trigger" data-field="1"></textarea></td><td><textarea id="p05_r5_happened" data-field="1"></textarea></td><td><textarea id="p05_r5_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r5_intensity" data-field="1"></td></tr><tr><td><textarea id="p05_r6_trigger" data-field="1"></textarea></td><td><textarea id="p05_r6_happened" data-field="1"></textarea></td><td><textarea id="p05_r6_thinking" data-field="1"></textarea></td><td><input type="text" id="p05_r6_intensity" data-field="1"></td></tr></table></div></section><hr class="sep"><section class="section wrap" id="sec4"><div class="chip">DAY 1</div><h2 class="day-title">Catch the Pattern</h2><hr class="title-rule"><p>“You can&#x27;t interrupt a spiral you don&#x27;t notice.”</p><p>Today&#x27;s goal is simple, and a little backwards: don&#x27;t try to stop yourself from overthinking. Just notice it. When you catch yourself in a loop — replaying, rehearsing, bracing — pause and fill this in. If more spirals show up later, add them to your triggers page.</p><div class="field-wrap">
+  <label class="flabel" for="d1_happened">What happened?<span class="saved-tag" id="tag_d1_happened">saved</span></label>
+  <textarea class="" id="d1_happened" name="d1_happened" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1_thinking">What did I immediately start thinking?<span class="saved-tag" id="tag_d1_thinking">saved</span></label>
+  <textarea class="" id="d1_thinking" name="d1_thinking" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1_afraid">What was I afraid might happen?<span class="saved-tag" id="tag_d1_afraid">saved</span></label>
+  <textarea class="" id="d1_afraid" name="d1_afraid" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1_wanted">What did I want to do because of the thought?<span class="saved-tag" id="tag_d1_wanted">saved</span></label>
+  <textarea class="" id="d1_wanted" name="d1_wanted" data-field="1"></textarea>
+</div><div class="rating-wrap">
+  <label class="flabel">How intense was it? <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d1_intensity_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d1_intensity_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>barely there</span><span>completely consuming</span></div>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1_after">What happened after I noticed it?<span class="saved-tag" id="tag_d1_after">saved</span></label>
+  <textarea class="" id="d1_after" name="d1_after" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec5"><div class="chip">DAY 1  ·  REFLECTION</div><h2 class="day-title">What today showed you</h2><hr class="title-rule"><p>Take five minutes at the end of the day. Answer fast and honestly — first thoughts count.</p><div class="field-wrap">
+  <label class="flabel" for="d1r_q1">What surprised me about my overthinking today?<span class="saved-tag" id="tag_d1r_q1">saved</span></label>
+  <textarea class="big" id="d1r_q1" name="d1r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1r_q2">What situations triggered me most?<span class="saved-tag" id="tag_d1r_q2">saved</span></label>
+  <textarea class="big" id="d1r_q2" name="d1r_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1r_q3">What was I actually looking for?<span class="saved-tag" id="tag_d1r_q3">saved</span></label>
+  <textarea class="big" id="d1r_q3" name="d1r_q3" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1r_q4">What do I usually do when I feel uncertain?<span class="saved-tag" id="tag_d1r_q4">saved</span></label>
+  <textarea class="big" id="d1r_q4" name="d1r_q4" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d1r_extra">Today I noticed…<span class="saved-tag" id="tag_d1r_extra">saved</span></label>
+  <textarea class="big" id="d1r_extra" name="d1r_extra" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec6"><div class="chip">DAY 2</div><h2 class="day-title">Separate Facts From Fear</h2><hr class="title-rule"><p>One of the sneakiest things overthinking does is make a possibility feel like a fact. The brain fills silence with a story — usually the scariest one — and then treats it like it already happened.</p><p>Today you&#x27;re going to put what you actually know on one side, and what you&#x27;re afraid of on the other.</p><div style="overflow-x:auto"><table class="grid"><tr><th>WHAT I KNOW</th><th>WHAT I&#x27;M AFRAID OF</th></tr><tr><td style="background:var(--lsage);font-family:'Poppins',sans-serif;font-style:italic;color:var(--muted);font-size:11.5px">e.g.  He hasn&#x27;t replied yet.</td><td style="background:var(--lsage);font-family:'Poppins',sans-serif;font-style:italic;color:var(--muted);font-size:11.5px">e.g.  He is angry with me.</td></tr><tr><td style="background:var(--lsage);font-family:'Poppins',sans-serif;font-style:italic;color:var(--muted);font-size:11.5px">e.g.  My manager asked to talk tomorrow.</td><td style="background:var(--lsage);font-family:'Poppins',sans-serif;font-style:italic;color:var(--muted);font-size:11.5px">e.g.  I&#x27;m in trouble.</td></tr><tr><td><textarea id="d2_r1_know" data-field="1"></textarea></td><td><textarea id="d2_r1_fear" data-field="1"></textarea></td></tr><tr><td><textarea id="d2_r2_know" data-field="1"></textarea></td><td><textarea id="d2_r2_fear" data-field="1"></textarea></td></tr><tr><td><textarea id="d2_r3_know" data-field="1"></textarea></td><td><textarea id="d2_r3_fear" data-field="1"></textarea></td></tr><tr><td><textarea id="d2_r4_know" data-field="1"></textarea></td><td><textarea id="d2_r4_fear" data-field="1"></textarea></td></tr><tr><td><textarea id="d2_r5_know" data-field="1"></textarea></td><td><textarea id="d2_r5_fear" data-field="1"></textarea></td></tr><tr><td><textarea id="d2_r6_know" data-field="1"></textarea></td><td><textarea id="d2_r6_fear" data-field="1"></textarea></td></tr></table></div></section><hr class="sep"><section class="section wrap" id="sec7"><div class="chip">DAY 2  ·  THE FACT CHECK</div><h2 class="day-title">The Fact Check</h2><hr class="title-rule"><p>Pick one thought that&#x27;s been looping. Walk it through these questions slowly.</p><div class="field-wrap">
+  <label class="flabel" for="d2f_q1">What actually happened?<span class="saved-tag" id="tag_d2f_q1">saved</span></label>
+  <textarea class="" id="d2f_q1" name="d2f_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2f_q2">What am I assuming?<span class="saved-tag" id="tag_d2f_q2">saved</span></label>
+  <textarea class="" id="d2f_q2" name="d2f_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2f_q3">What evidence supports my fear?<span class="saved-tag" id="tag_d2f_q3">saved</span></label>
+  <textarea class="" id="d2f_q3" name="d2f_q3" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2f_q4">What evidence doesn&#x27;t support it?<span class="saved-tag" id="tag_d2f_q4">saved</span></label>
+  <textarea class="" id="d2f_q4" name="d2f_q4" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2f_q5">What would I tell a friend in this situation?<span class="saved-tag" id="tag_d2f_q5">saved</span></label>
+  <textarea class="" id="d2f_q5" name="d2f_q5" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2f_q6">What is the most balanced interpretation?<span class="saved-tag" id="tag_d2f_q6">saved</span></label>
+  <textarea class="" id="d2f_q6" name="d2f_q6" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec8"><div class="chip">DAY 2  ·  REFLECTION</div><h2 class="day-title">Where your brain filled in the blanks</h2><hr class="title-rule"><p>A possibility isn&#x27;t a prediction. Notice how quickly your mind treats it like one.</p><div class="field-wrap">
+  <label class="flabel" for="d2r_q1">What thought felt true but turned out to be an assumption?<span class="saved-tag" id="tag_d2r_q1">saved</span></label>
+  <textarea class="big" id="d2r_q1" name="d2r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2r_q2">What did I learn about the way my brain fills in missing information?<span class="saved-tag" id="tag_d2r_q2">saved</span></label>
+  <textarea class="big" id="d2r_q2" name="d2r_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d2r_q3">What would change if I stopped treating every possibility as a prediction?<span class="saved-tag" id="tag_d2r_q3">saved</span></label>
+  <textarea class="big" id="d2r_q3" name="d2r_q3" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec9"><div class="chip">DAY 3</div><h2 class="day-title">Stop Reassurance Hunting</h2><hr class="title-rule"><p>Reassurance hunting is when you go looking outside yourself for certainty — again and again — to quiet a worry. It works for about ten minutes. Then the doubt comes back and you need another hit.</p><p>It can look like:</p><p>•  Asking friends what they think, repeatedly</p><p>•  Checking someone&#x27;s activity</p><p>•  Searching Google for certainty</p><p>•  Rereading messages</p><p>•  Looking for signs</p><p>•  Asking “Are you sure?” over and over</p><p>•  Checking whether someone viewed something</p><p>Today you&#x27;re not forcing yourself to stop. You&#x27;re just noticing when it happens.</p><p>Today I noticed myself seeking reassurance through:</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 14px"><label class="check-row"><input type="checkbox" id="d3_friends" data-field="1"><span>Friends</span></label><label class="check-row"><input type="checkbox" id="d3_social" data-field="1"><span>Social media</span></label><label class="check-row"><input type="checkbox" id="d3_messages" data-field="1"><span>Messages</span></label><label class="check-row"><input type="checkbox" id="d3_google" data-field="1"><span>Google / search</span></label><label class="check-row"><input type="checkbox" id="d3_reread" data-field="1"><span>Re-reading</span></label><label class="check-row"><input type="checkbox" id="d3_checking" data-field="1"><span>Checking</span></label><label class="check-row"><input type="checkbox" id="d3_asking" data-field="1"><span>Asking repeatedly</span></label><label class="check-row"><input type="checkbox" id="d3_other" data-field="1"><span>Other</span></label></div><div class="field-wrap">
+  <label class="flabel" for="d3_other_text">If other, what?<span class="saved-tag" id="tag_d3_other_text">saved</span></label>
+  <input type="text" id="d3_other_text" name="d3_other_text" data-field="1">
+</div></section><hr class="sep"><section class="section wrap" id="sec10"><div class="chip">DAY 3  ·  THE REASSURANCE DELAY</div><h2 class="day-title">The Reassurance Delay</h2><hr class="title-rule"><p>“When you want reassurance, don&#x27;t immediately give it to yourself.”</p><p>This isn&#x27;t about never asking for support. It&#x27;s about letting the urge rise, peak and soften for ten minutes before you act on it. Then fill this in.</p><div class="field-wrap">
+  <label class="flabel" for="d3d_trigger">Trigger<span class="saved-tag" id="tag_d3d_trigger">saved</span></label>
+  <textarea class="" id="d3d_trigger" name="d3d_trigger" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d3d_wanted">What reassurance did I want?<span class="saved-tag" id="tag_d3d_wanted">saved</span></label>
+  <textarea class="" id="d3d_wanted" name="d3d_wanted" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d3d_afraid">What was I afraid would happen without it?<span class="saved-tag" id="tag_d3d_afraid">saved</span></label>
+  <textarea class="" id="d3d_afraid" name="d3d_afraid" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d3d_waited">What happened when I waited?<span class="saved-tag" id="tag_d3d_waited">saved</span></label>
+  <textarea class="" id="d3d_waited" name="d3d_waited" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel">Did the urge change? <span class="tick-one">(tick one)</span></label>
+  <div class="choice-row"><label class="choice-opt"><input type="checkbox" id="d3d_urge_changed_yes" data-field="1"><span>Yes</span></label><label class="choice-opt"><input type="checkbox" id="d3d_urge_changed_no" data-field="1"><span>No</span></label></div>
+</div><div class="rating-wrap">
+  <label class="flabel">Intensity before <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d3d_before_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d3d_before_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>barely there</span><span>completely consuming</span></div>
+</div><div class="rating-wrap">
+  <label class="flabel">Intensity after <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d3d_after_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d3d_after_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>barely there</span><span>completely consuming</span></div>
+</div></section><hr class="sep"><section class="section wrap" id="sec11"><div class="chip">DAY 3  ·  REFLECTION</div><h2 class="day-title">What happened when you didn&#x27;t grab for it</h2><hr class="title-rule"><p>Reassurance is usually a feeling we&#x27;re trying to hand ourselves. Let&#x27;s get curious about which one.</p><div class="field-wrap">
+  <label class="flabel" for="d3r_q1">What did I notice when I didn&#x27;t immediately seek reassurance?<span class="saved-tag" id="tag_d3r_q1">saved</span></label>
+  <textarea class="big" id="d3r_q1" name="d3r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d3r_q2">What am I usually trying to make myself feel?<span class="saved-tag" id="tag_d3r_q2">saved</span></label>
+  <textarea class="big" id="d3r_q2" name="d3r_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d3r_q3">What could I learn to give myself instead?<span class="saved-tag" id="tag_d3r_q3">saved</span></label>
+  <textarea class="big" id="d3r_q3" name="d3r_q3" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec12"><div class="chip">DAY 4</div><h2 class="day-title">Don&#x27;t Obey the First Urge</h2><hr class="title-rule"><p>An urge feels like an order. It isn&#x27;t one. When it shows up — check, send, ask, search — you get to decide what happens next. The 10-Minute Rule: stop, and wait ten minutes.</p><p>THE 10-MINUTE RESET</p><div class="field-wrap">
+  <label class="flabel" for="d4_feeling">1.  What am I feeling?<span class="saved-tag" id="tag_d4_feeling">saved</span></label>
+  <textarea class="" id="d4_feeling" name="d4_feeling" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d4_want">2.  What do I want to do?<span class="saved-tag" id="tag_d4_want">saved</span></label>
+  <textarea class="" id="d4_want" name="d4_want" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d4_hoping">3.  What am I hoping that action will give me?<span class="saved-tag" id="tag_d4_hoping">saved</span></label>
+  <textarea class="" id="d4_hoping" name="d4_hoping" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d4_instead">4.  What can I do for 10 minutes instead?<span class="saved-tag" id="tag_d4_instead">saved</span></label>
+  <textarea class="" id="d4_instead" name="d4_instead" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec13"><div class="chip">DAY 4  ·  REFLECTION</div><h2 class="day-title">What ten minutes showed you</h2><hr class="title-rule"><p>Even one delayed urge is data. What did the ten minutes teach you?</p><div class="field-wrap">
+  <label class="flabel" for="d4r_q1">What happened when I gave myself 10 minutes?<span class="saved-tag" id="tag_d4r_q1">saved</span></label>
+  <textarea class="big" id="d4r_q1" name="d4r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel">Did the urge become stronger, weaker, or stay the same? <span class="tick-one">(tick one)</span></label>
+  <div class="choice-row"><label class="choice-opt"><input type="checkbox" id="d4r_urge_stronger" data-field="1"><span>Stronger</span></label><label class="choice-opt"><input type="checkbox" id="d4r_urge_weaker" data-field="1"><span>Weaker</span></label><label class="choice-opt"><input type="checkbox" id="d4r_urge_same" data-field="1"><span>Stayed the same</span></label></div>
+</div><div class="field-wrap">
+  <label class="flabel" for="d4r_urge_more">Tell me more (optional):<span class="saved-tag" id="tag_d4r_urge_more">saved</span></label>
+  <textarea class="" id="d4r_urge_more" name="d4r_urge_more" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d4r_q3">What did I learn?<span class="saved-tag" id="tag_d4r_q3">saved</span></label>
+  <textarea class="big" id="d4r_q3" name="d4r_q3" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec14"><div class="chip">DAY 5</div><h2 class="day-title">What If That Actually Happens?</h2><hr class="title-rule"><p>Overthinking keeps asking “But what if?” and never lets the answer land. Instead of endlessly asking, finish the thought — all the way to the end.</p><div class="field-wrap">
+  <label class="flabel" for="d5_whatif">WHAT IF…<span class="saved-tag" id="tag_d5_whatif">saved</span></label>
+  <textarea class="" id="d5_whatif" name="d5_whatif" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d5_ifhappens">AND IF THAT HAPPENS…<span class="saved-tag" id="tag_d5_ifhappens">saved</span></label>
+  <textarea class="" id="d5_ifhappens" name="d5_ifhappens" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d5_iwould">THEN I WOULD…<span class="saved-tag" id="tag_d5_iwould">saved</span></label>
+  <textarea class="" id="d5_iwould" name="d5_iwould" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d5_okay">AND I WOULD STILL BE OKAY BECAUSE…<span class="saved-tag" id="tag_d5_okay">saved</span></label>
+  <textarea class="" id="d5_okay" name="d5_okay" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec15"><div class="chip">DAY 5  ·  REFLECTION</div><h2 class="day-title">What you&#x27;d actually do</h2><hr class="title-rule"><p>Most “what ifs” stop being scary once you&#x27;ve walked through what you&#x27;d do next.</p><div class="field-wrap">
+  <label class="flabel" for="d5r_q1">What am I afraid I couldn&#x27;t handle?<span class="saved-tag" id="tag_d5r_q1">saved</span></label>
+  <textarea class="big" id="d5r_q1" name="d5r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d5r_q2">What would I actually do if my fear happened?<span class="saved-tag" id="tag_d5r_q2">saved</span></label>
+  <textarea class="big" id="d5r_q2" name="d5r_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d5r_q3">What does this tell me about my ability to cope?<span class="saved-tag" id="tag_d5r_q3">saved</span></label>
+  <textarea class="big" id="d5r_q3" name="d5r_q3" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec16"><div class="chip">DAY 6</div><h2 class="day-title">You Don&#x27;t Need an Answer for Everything</h2><hr class="title-rule"><p>Uncertainty is uncomfortable. But discomfort doesn&#x27;t automatically mean something is wrong — sometimes it just means you don&#x27;t know yet.</p><div class="callout">The Uncertainty Challenge: choose one small uncertainty to leave unresolved today.</div><div class="field-wrap">
+  <label class="flabel" for="d6_uncertainty">The uncertainty:<span class="saved-tag" id="tag_d6_uncertainty">saved</span></label>
+  <textarea class="" id="d6_uncertainty" name="d6_uncertainty" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6_want">What do I WANT to know?<span class="saved-tag" id="tag_d6_want">saved</span></label>
+  <textarea class="" id="d6_want" name="d6_want" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6_tempted">What am I tempted to do?<span class="saved-tag" id="tag_d6_tempted">saved</span></label>
+  <textarea class="" id="d6_tempted" name="d6_tempted" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6_ifnot">What happens if I don&#x27;t?<span class="saved-tag" id="tag_d6_ifnot">saved</span></label>
+  <textarea class="" id="d6_ifnot" name="d6_ifnot" data-field="1"></textarea>
+</div><div class="rating-wrap">
+  <label class="flabel">How uncomfortable does it feel? <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d6_uncomfortable_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>mild</span><span>very uncomfortable</span></div>
+</div></section><hr class="sep"><section class="section wrap" id="sec17"><div class="chip">DAY 6  ·  CHECK-IN</div><h2 class="day-title">Uncertainty check-in</h2><hr class="title-rule"><p>Complete BEFORE at the start of the challenge, and AFTER once the day is over.</p><p>BEFORE</p><div class="rating-wrap">
+  <label class="flabel">Anxiety / intensity <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d6c_before_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d6c_before_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>mild</span><span>very high</span></div>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6c_wanted">What I wanted to do:<span class="saved-tag" id="tag_d6c_wanted">saved</span></label>
+  <textarea class="" id="d6c_wanted" name="d6c_wanted" data-field="1"></textarea>
+</div><p>AFTER</p><div class="rating-wrap">
+  <label class="flabel">Anxiety / intensity <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="d6c_after_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="d6c_after_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>mild</span><span>very high</span></div>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6c_happened">What actually happened:<span class="saved-tag" id="tag_d6c_happened">saved</span></label>
+  <textarea class="" id="d6c_happened" name="d6c_happened" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6c_learned">What I learned:<span class="saved-tag" id="tag_d6c_learned">saved</span></label>
+  <textarea class="" id="d6c_learned" name="d6c_learned" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec18"><div class="chip">DAY 6  ·  REFLECTION</div><h2 class="day-title">What you found out about not knowing</h2><hr class="title-rule"><p>You just practised sitting with an open question. Here&#x27;s what it showed you.</p><div class="field-wrap">
+  <label class="flabel" for="d6r_q1">What did I discover about uncertainty?<span class="saved-tag" id="tag_d6r_q1">saved</span></label>
+  <textarea class="big" id="d6r_q1" name="d6r_q1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6r_q2">Did I actually need the answer as urgently as I thought?<span class="saved-tag" id="tag_d6r_q2">saved</span></label>
+  <textarea class="big" id="d6r_q2" name="d6r_q2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d6r_q3">What would happen if I trusted myself more?<span class="saved-tag" id="tag_d6r_q3">saved</span></label>
+  <textarea class="big" id="d6r_q3" name="d6r_q3" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec19"><div class="chip">DAY 7</div><h2 class="day-title">Build Your Anti-Spiral Plan</h2><hr class="title-rule"><p>This is the most important page in the workbook. Write it in your own words — it&#x27;s the plan you&#x27;ll come back to when your brain gets loud.</p><div class="field-wrap">
+  <label class="flabel" for="d7_triggers">MY COMMON TRIGGERS:<span class="saved-tag" id="tag_d7_triggers">saved</span></label>
+  <textarea class="" id="d7_triggers" name="d7_triggers" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d7_signs">MY EARLY WARNING SIGNS:<span class="saved-tag" id="tag_d7_signs">saved</span></label>
+  <textarea class="" id="d7_signs" name="d7_signs" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d7_usually">WHAT I USUALLY DO:<span class="saved-tag" id="tag_d7_usually">saved</span></label>
+  <textarea class="" id="d7_usually" name="d7_usually" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d7_instead">WHAT I WANT TO DO INSTEAD:<span class="saved-tag" id="tag_d7_instead">saved</span></label>
+  <textarea class="" id="d7_instead" name="d7_instead" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d7_support">WHO I CAN TALK TO WHEN I REALLY NEED SUPPORT:<span class="saved-tag" id="tag_d7_support">saved</span></label>
+  <textarea class="" id="d7_support" name="d7_support" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="d7_remember">WHAT I NEED TO REMEMBER:<span class="saved-tag" id="tag_d7_remember">saved</span></label>
+  <textarea class="" id="d7_remember" name="d7_remember" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec20"><div class="chip">EMERGENCY RESET</div><h2 class="day-title">My 5-Minute Emergency Reset</h2><hr class="title-rule"><p>Keep this page where you can find it fast. Use it when the spiral is loud and you can&#x27;t think straight.</p><div class="field-wrap">
+  <label class="flabel" for="em_feeling">1.  What am I feeling?<span class="saved-tag" id="tag_em_feeling">saved</span></label>
+  <textarea class="" id="em_feeling" name="em_feeling" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="em_thought">2.  What thought is looping?<span class="saved-tag" id="tag_em_thought">saved</span></label>
+  <textarea class="" id="em_thought" name="em_thought" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel">3.  Is this a fact, fear, assumption, or possibility? <span class="tick-one">(tick one)</span></label>
+  <div class="choice-row"><label class="choice-opt"><input type="checkbox" id="em_type_fact" data-field="1"><span>Fact</span></label><label class="choice-opt"><input type="checkbox" id="em_type_fear" data-field="1"><span>Fear</span></label><label class="choice-opt"><input type="checkbox" id="em_type_assumption" data-field="1"><span>Assumption</span></label><label class="choice-opt"><input type="checkbox" id="em_type_possibility" data-field="1"><span>Possibility</span></label></div>
+</div><div class="field-wrap">
+  <label class="flabel" for="em_need">4.  What do I actually need right now?<span class="saved-tag" id="tag_em_need">saved</span></label>
+  <textarea class="" id="em_need" name="em_need" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="em_next">5.  What will I do for the next 5 minutes?<span class="saved-tag" id="tag_em_next">saved</span></label>
+  <textarea class="" id="em_next" name="em_next" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec21"><div class="chip">BEFORE  &amp;  NOW</div><h2 class="day-title">My pattern: before vs. now</h2><hr class="title-rule"><p>Look at where you started and where you are.</p><p>BEFORE THIS RESET</p><div class="field-wrap">
+  <label class="flabel" for="bn_usually">I usually…<span class="saved-tag" id="tag_bn_usually">saved</span></label>
+  <textarea class="" id="bn_usually" name="bn_usually" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="bn_reacted">I usually reacted by…<span class="saved-tag" id="tag_bn_reacted">saved</span></label>
+  <textarea class="" id="bn_reacted" name="bn_reacted" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="bn_trigger">My biggest trigger was…<span class="saved-tag" id="tag_bn_trigger">saved</span></label>
+  <textarea class="" id="bn_trigger" name="bn_trigger" data-field="1"></textarea>
+</div><p>NOW</p><div class="field-wrap">
+  <label class="flabel" for="bn_notice">I notice…<span class="saved-tag" id="tag_bn_notice">saved</span></label>
+  <textarea class="" id="bn_notice" name="bn_notice" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="bn_interrupt">I can interrupt the pattern by…<span class="saved-tag" id="tag_bn_interrupt">saved</span></label>
+  <textarea class="" id="bn_interrupt" name="bn_interrupt" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="bn_practice">I want to practise…<span class="saved-tag" id="tag_bn_practice">saved</span></label>
+  <textarea class="" id="bn_practice" name="bn_practice" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec22"><div class="chip">PROGRESS</div><h2 class="day-title">My 7-day progress tracker</h2><hr class="title-rule"><p>Fill this in at the end of each day. Small answers count — this is a record, not a report card.</p><div style="overflow-x:auto"><table class="grid"><tr><th>DAY</th><th>DID I NOTICE THE SPIRAL?</th><th>DID I INTERRUPT IT?</th><th>INTENSITY 1–10</th><th>ONE THING I LEARNED</th></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 1</td><td style="text-align:center"><input type="checkbox" id="tr_d1_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d1_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d1_intensity" data-field="1"></td><td><textarea id="tr_d1_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 2</td><td style="text-align:center"><input type="checkbox" id="tr_d2_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d2_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d2_intensity" data-field="1"></td><td><textarea id="tr_d2_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 3</td><td style="text-align:center"><input type="checkbox" id="tr_d3_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d3_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d3_intensity" data-field="1"></td><td><textarea id="tr_d3_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 4</td><td style="text-align:center"><input type="checkbox" id="tr_d4_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d4_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d4_intensity" data-field="1"></td><td><textarea id="tr_d4_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 5</td><td style="text-align:center"><input type="checkbox" id="tr_d5_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d5_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d5_intensity" data-field="1"></td><td><textarea id="tr_d5_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 6</td><td style="text-align:center"><input type="checkbox" id="tr_d6_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d6_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d6_intensity" data-field="1"></td><td><textarea id="tr_d6_learned" data-field="1"></textarea></td></tr><tr><td style="font-family:'Lora',serif;font-size:14px;padding-left:8px">Day 7</td><td style="text-align:center"><input type="checkbox" id="tr_d7_noticed" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td style="text-align:center"><input type="checkbox" id="tr_d7_interrupted" data-field="1" style="width:16px;height:16px;accent-color:var(--rose)"></td><td><input type="text" id="tr_d7_intensity" data-field="1"></td><td><textarea id="tr_d7_learned" data-field="1"></textarea></td></tr></table></div></section><hr class="sep"><section class="section wrap" id="sec23"><div class="chip">WHAT I’M TAKING WITH ME</div><h2 class="day-title">What I’m taking with me</h2><hr class="title-rule"><p>Finish each sentence. Don&#x27;t polish it.</p><div class="field-wrap">
+  <label class="flabel" for="tk_s1">I used to think overthinking meant…<span class="saved-tag" id="tag_tk_s1">saved</span></label>
+  <textarea class="big" id="tk_s1" name="tk_s1" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="tk_s2">Now I understand…<span class="saved-tag" id="tag_tk_s2">saved</span></label>
+  <textarea class="big" id="tk_s2" name="tk_s2" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="tk_s3">When I start spiraling, I will…<span class="saved-tag" id="tag_tk_s3">saved</span></label>
+  <textarea class="big" id="tk_s3" name="tk_s3" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="tk_s4">One thing I trust myself to handle is…<span class="saved-tag" id="tag_tk_s4">saved</span></label>
+  <textarea class="big" id="tk_s4" name="tk_s4" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="tk_s5">I don&#x27;t need to know everything because…<span class="saved-tag" id="tag_tk_s5">saved</span></label>
+  <textarea class="big" id="tk_s5" name="tk_s5" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec24"><div class="chip">MY REMINDER</div><h2 class="day-title">My personal reminder</h2><hr class="title-rule"><p>I don&#x27;t need to solve every thought.</p><p>I don&#x27;t need certainty before I can move forward.</p><p>I can feel uncomfortable without reacting.</p><p>I can pause.</p><p>I can choose.</p><p>I can trust myself.</p><div class="field-wrap">
+  <label class="flabel" for="rem_remember">When I forget everything else, I want to remember…<span class="saved-tag" id="tag_rem_remember">saved</span></label>
+  <textarea class="big" id="rem_remember" name="rem_remember" data-field="1"></textarea>
+</div></section><hr class="sep"><section class="section wrap" id="sec25"><div class="chip">REUSABLE PAGE</div><h2 class="day-title">Spiral Reset</h2><hr class="title-rule"><p>Come back to this whenever the spiral starts. This page is always here, saved on this device — use it as many times as you need.</p><div class="field-wrap">
+  <label class="flabel" for="sr_triggered">WHAT TRIGGERED ME?<span class="saved-tag" id="tag_sr_triggered">saved</span></label>
+  <textarea class="" id="sr_triggered" name="sr_triggered" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="sr_thinking">WHAT AM I THINKING?<span class="saved-tag" id="tag_sr_thinking">saved</span></label>
+  <textarea class="" id="sr_thinking" name="sr_thinking" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="sr_afraid">WHAT AM I AFRAID OF?<span class="saved-tag" id="tag_sr_afraid">saved</span></label>
+  <textarea class="" id="sr_afraid" name="sr_afraid" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="sr_know">WHAT DO I ACTUALLY KNOW?<span class="saved-tag" id="tag_sr_know">saved</span></label>
+  <textarea class="" id="sr_know" name="sr_know" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="sr_need">WHAT DO I NEED?<span class="saved-tag" id="tag_sr_need">saved</span></label>
+  <textarea class="" id="sr_need" name="sr_need" data-field="1"></textarea>
+</div><div class="field-wrap">
+  <label class="flabel" for="sr_next">WHAT WILL I DO NEXT?<span class="saved-tag" id="tag_sr_next">saved</span></label>
+  <textarea class="" id="sr_next" name="sr_next" data-field="1"></textarea>
+</div><div class="rating-wrap">
+  <label class="flabel">Intensity before <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="sr_before_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="sr_before_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>barely there</span><span>completely consuming</span></div>
+</div><div class="rating-wrap">
+  <label class="flabel">Intensity after <span class="tick-one">(tick one)</span></label>
+  <div class="rating-row"><label class="rating-opt"><input type="checkbox" id="sr_after_1" data-field="1"><span>1</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_2" data-field="1"><span>2</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_3" data-field="1"><span>3</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_4" data-field="1"><span>4</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_5" data-field="1"><span>5</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_6" data-field="1"><span>6</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_7" data-field="1"><span>7</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_8" data-field="1"><span>8</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_9" data-field="1"><span>9</span></label><label class="rating-opt"><input type="checkbox" id="sr_after_10" data-field="1"><span>10</span></label></div>
+  <div class="rating-caps"><span>barely there</span><span>completely consuming</span></div>
+</div></section><hr class="sep">
+
+<div class="closing wrap">
+  <h2>You don&rsquo;t have to become someone<br>who never overthinks.</h2>
+  <div class="italic">You just need to become someone who<br>knows what to do when the spiral starts.</div>
+  <div class="box"><span class="b">THE RESET ISN&rsquo;T ABOUT<br>CONTROLLING EVERY THOUGHT.</span><br><br>
+  <span class="r">IT&rsquo;S ABOUT LEARNING THAT YOU<br>DON&rsquo;T HAVE TO OBEY EVERY THOUGHT.</span></div>
+  <div style="margin-top:30px;font-family:'Lora',serif;font-size:18px">SheRebuilt&trade;</div>
+  <div style="font-size:11px;letter-spacing:2px;color:var(--drose);font-weight:600;margin-top:4px">DETACH.  HEAL.  REBUILD.</div>
+</div>
+
+<div class="bottom-bar">
+  <button class="btn btn-secondary" id="clearBtn">Clear answers</button>
+  <button class="btn btn-primary" id="dlBtn">Download my answers</button>
+</div>
+<script>
+(function(){
+  var KEY_PREFIX = 'sr_overthinking_';
+  function allFields(){ return document.querySelectorAll('[data-field]'); }
+
+  function save(el){
+    try{
+      var key = KEY_PREFIX + el.id;
+      var val = (el.type === 'checkbox') ? (el.checked ? '1' : '') : el.value;
+      localStorage.setItem(key, val);
+      var tag = document.getElementById('tag_' + el.id);
+      if(tag){ tag.classList.add('show'); setTimeout(function(){tag.classList.remove('show');}, 900); }
+    }catch(e){ /* storage unavailable; degrade silently */ }
+  }
+
+  function restore(){
+    try{
+      allFields().forEach(function(el){
+        var v = localStorage.getItem(KEY_PREFIX + el.id);
+        if(v === null) return;
+        if(el.type === 'checkbox'){ el.checked = (v === '1'); }
+        else { el.value = v; }
+      });
+    }catch(e){}
+  }
+
+  function wire(){
+    allFields().forEach(function(el){
+      var evt = (el.tagName === 'TEXTAREA' || el.type === 'text') ? 'input' : 'change';
+      el.addEventListener(evt, function(){
+        clearTimeout(el._saveTimer);
+        el._saveTimer = setTimeout(function(){ save(el); }, evt === 'input' ? 500 : 0);
+      });
+      // also save on blur immediately, in case debounce hasn't fired yet
+      if(evt === 'input'){
+        el.addEventListener('blur', function(){ clearTimeout(el._saveTimer); save(el); });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    restore();
+    wire();
+
+    var nav = document.getElementById('daynav');
+    nav.addEventListener('change', function(){
+      var id = nav.value;
+      if(!id) return;
+      var el = document.getElementById(id);
+      if(el){
+        if (el.scrollIntoView) {
+          try { el.scrollIntoView(true); }
+          catch(e) {
+            var rect = el.getBoundingClientRect();
+            window.scrollTo(0, window.pageYOffset + rect.top - 64);
+          }
+        } else {
+          var rect2 = el.getBoundingClientRect();
+          window.scrollTo(0, window.pageYOffset + rect2.top - 64);
+        }
+      }
+      nav.value = '';
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function(){
+      if(!confirm('Clear everything you\'ve written in this workbook? This can\'t be undone.')) return;
+      try{
+        Object.keys(localStorage).filter(function(k){return k.indexOf(KEY_PREFIX)===0;})
+          .forEach(function(k){ localStorage.removeItem(k); });
+      }catch(e){}
+      allFields().forEach(function(el){
+        if(el.type === 'checkbox') el.checked = false; else el.value = '';
+      });
+    });
+
+    async function setupDownload(){
+      var btn = document.getElementById('dlBtn');
+      var downloads = null;
+      try{
+        if(window.claude && window.claude.use){ downloads = await window.claude.use('downloads'); }
+      }catch(e){}
+      if(!downloads){ btn.style.display = 'none'; return; }
+      btn.addEventListener('click', async function(){
+        var lines = ['THE 7-DAY OVERTHINKING RESET \u2014 my answers', ''];
+        document.querySelectorAll('.section').forEach(function(sec){
+          var h = sec.querySelector('.day-title');
+          if(h) lines.push('\n== ' + h.textContent + ' ==');
+          sec.querySelectorAll('[data-field]').forEach(function(el){
+            var label = el.closest('.field-wrap') ? el.closest('.field-wrap').querySelector('label') : null;
+            var lbl = label ? label.textContent.replace('saved','').trim() : el.id;
+            if(el.type === 'checkbox'){
+              if(el.checked) lines.push('\u2713 ' + (el.closest('.check-row, .choice-opt, .rating-opt') ? el.nextElementSibling.textContent : el.id));
+            } else if(el.value && el.value.trim()){
+              lines.push(lbl + ': ' + el.value.trim());
+            }
+          });
+        });
+        try{
+          await downloads.save({filename: 'my-overthinking-reset-answers.txt', data: lines.join('\n')});
+        }catch(e){}
+      });
+    }
+    setupDownload();
+  });
+})();
+</script>
+</body>
+</html>
